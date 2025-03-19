@@ -78,7 +78,8 @@ class MOTDataset(Dataset):
             cls = self.class_ids.index(obj["category_id"])
             res[ix, 0:4] = obj["clean_bbox"]
             res[ix, 4] = cls
-            res[ix, 5] = obj["track_id"]
+            # res[ix, 5] = obj["track_id"]
+            res[ix, 5] = 1
 
         file_name = im_ann["file_name"] if "file_name" in im_ann else "{:012}".format(id_) + ".jpg"
         img_info = (height, width, frame_id, video_id, file_name)
